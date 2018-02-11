@@ -12,7 +12,7 @@ nb_classes = len(categories)
 image_w = 224
 image_h = 224
 
-X_train, X_test, y_train, y_test = np.load("./photo/5obj.npy")
+X_train, X_test, y_train, y_test = np.load("5obj.npy")
 
 X_train = X_train.astype("float") / 256
 X_test = X_test.astype("float") / 256
