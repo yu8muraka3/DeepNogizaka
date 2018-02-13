@@ -2,10 +2,15 @@ from sklearn import cross_validation
 from PIL import Image
 import os, glob
 import numpy as np
+from keras.models import Sequential
+from keras.layers import Convolution2D, MaxPooling2D
+from keras.layers import Activation, Dropout, Flatten, Dense
+from keras.layers.advanced_activations import LeakyReLU
+
 
 #分類対象のカテゴリーを選ぶ
-nogi_dir = "./photo_out/"
-categories = ["asuka_out","ayane_out","chiharu_out","himetan_out","hinachima_out","hinako_out","ikoma_out","ikuta_out","iori_out","junna_out","kanarin_out","karin_out","kawago_out","kawamura_out","kazumin_out","kotoko_out","maichun_out","maiyan_out","manattan_out","marika_out","maya_out","minami_out","miona_out","miria_out","misamisa_out","nanase_out","nojo_out","ranze_out","reika_out","renachi_out","sayunyan_out","sayurin_out","waka_out","yuttan_out"]
+nogi_dir = "./photo_select/"
+categories = ["asuka", "ikuta", "maiyan", "miona", "nanase"]
 
 nb_classes = len(categories)
 
@@ -40,7 +45,50 @@ Y = np.array(Y)
 #学習データとテストデータを分ける
 X_train, X_test, y_train, y_test = \
     cross_validation.train_test_split(X, Y)
-xy = (X_train, X_test, y_train, y_test)
-np.save("./photo/5obj.npy", xy)
+# xy = (X_train, X_test, y_train, y_test)
+# np.save("./photo/5obj.npy", xy)
+#
+# print("ok", len(Y))
 
-print("ok", len(Y))
+
+
+
+model = Sequential()
+
+model.add(Convolution2D(32, 3, 3,
+    border_mode = 'same',
+    activation = 'linear',
+    # input_shape = (image_w, image_h, 3)))
+    input_shape = X_train.shape[1:]))
+model.add(LeakyReLU(alpha=0.3))
+
+model.add(Convolution2D(32, 3, 3, border_mode='same', activation='linear'))
+model.add(LeakyReLU(alpha=0.3))
+
+model.add(MaxPooling2D((2,2), strides=(2,2)))
+
+model.add(Convolution2D(64, 3, 3, border_mode='same', activation='linear'))
+model.add(LeakyReLU(alpha=0.3))
+model.add(Convolution2D(64, 3, 3, border_mode='same', activation='linear'))
+model.add(LeakyReLU(alpha=0.3))
+model.add(MaxPooling2D((2,2), strides=(2,2)))
+
+model.add(Flatten())
+model.add(Dense(512, activation='linear'))
+model.add(LeakyReLU(alpha=0.3))
+model.add(Dropout(0.5))
+model.add(Dense(nb_classes, activation='softmax'))
+
+model.compile(loss='binary_crossentropy',
+    optimizer='rmsprop',
+    metrics=['accuracy'])
+
+model.fit(X_train, y_train, batch_size=64, nb_epoch=10)
+
+score = model.evaluate(X_test, y_test)
+print('loss=', score[0])
+print('accuracy=', score[1])
+
+
+#モデルを保存
+model.save("my_model.h5")
