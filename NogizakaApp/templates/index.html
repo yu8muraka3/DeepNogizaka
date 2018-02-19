@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+<h3>Hello</h3>
+<form method="post" action="/send" enctype="multipart/form-data">
+  <input type="file" id="img_file" name="img_file" class="col-sm-4">
+  <input type="submit" value="送信" class="btn">
+</form>
+{% if img_url %}
+<p><img src="{{ img_url }}"></p>
+  {% endif %}
+{% endblock %}

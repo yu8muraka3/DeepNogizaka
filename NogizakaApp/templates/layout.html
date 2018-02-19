@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>乃木坂っで、だれ？</title>
+  <meta name="description" content="自分の顔画像をアップロードすると、乃木坂46のメンバーの誰に似ているかを判定">
+  <link rel="stylesheet" href="/static/css/index.css">
+  <style>
+    /*Google Noto Sans Web Fonts*/
+    @import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+    #noto {
+        font-family: 'Noto Sans Japanese', serif;
+        font-weight: 100;
+    }
+  </style>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+  <div id = "particles-js"></div>
+    <h1 id = "noto">
+      乃木坂っで、だれ？
+    </h1>
+    <p class = "description">あなたが乃木坂46の誰に似ているかをAIが判定</p>
+      <div class = "triangle"></div>
+      <!-- <img src = "Orion_camera.svg" class="camera"> -->
+    {% block content %}{% endblock %}
+
+  <script src="/static/javascript/particles.min.js"></script>
+  <script src="/static/javascript/app.js"></script>
+</body>
+</html>
