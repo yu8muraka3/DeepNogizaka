@@ -12,4 +12,4 @@ This software is released under the MIT License, see LICENSE.
 
 ## Author
 
-[YuyaMurakami](https://github.com/YuyaMurakami)
+[YuyaMurakami](https://twitter.com/yu8muraka3)
