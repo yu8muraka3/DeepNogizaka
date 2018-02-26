@@ -4,7 +4,7 @@ Deep Nogizaka
 
 ## Description
 
-This application contains a model based on deep learning with face pictures of members of Nogizaka46 that is a Japanese idol group. By using this model, it decides which members are similar to you.
+This application contains a model based on deep learning with face images of members of Nogizaka46 that is a Japanese idol group. By using this model, it decides which members are similar to you.
 
 ## License
 
