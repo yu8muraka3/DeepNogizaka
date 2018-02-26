@@ -9,8 +9,8 @@ from keras.layers.advanced_activations import LeakyReLU
 
 
 #分類対象のカテゴリーを選ぶ
-nogi_dir = "./photo_select/"
-categories = ["asuka", "ikuta", "maiyan", "miona", "nanase"]
+nogi_dir = "./face_scratch_image/"
+categories = ["asuka", "ikuta", "maiyan", "miona", "nanase", "yasushi"]
 
 nb_classes = len(categories)
 

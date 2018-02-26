@@ -37,10 +37,10 @@ def getImage(search_item, img_list):
    continue
 
 if __name__ == "__main__":
- img_list = getImageUrl("渡辺みり愛", 80)
+ img_list = getImageUrl("秋元康", 100)
  print(img_list)
- getImage("miriax", img_list)
+ getImage("yasushi", img_list)
 
- img_list2 = getImageUrl("和田まあや", 80)
- print(img_list2)
- getImage("mayax", img_list2)
+ # img_list2 = getImageUrl("和田まあや", 80)
+ # print(img_list2)
+ # getImage("mayax", img_list2)

@@ -1,0 +1,12 @@
+status: 301
+content-length: 0
+connection: keep-alive
+server: CloudFront
+date: Mon, 26 Feb 2018 05:28:07 GMT
+location: http://www.nikkei.co.jp/close/goethe/
+x-cache: LambdaGeneratedResponse from cloudfront
+via: 1.1 2d83a5ada2e85e6eaca8189b9748ec71.cloudfront.net (CloudFront)
+x-amz-cf-id: 4Sa4AXrAasrufZcXski9WcXyqHWAFcxxbaj5Nfwe8vTAipGGFPpWZA==
+-x-permanent-redirect-url: http://www.nikkei.co.jp/close/goethe/
+content-location: https://goethe.nikkei.co.jp/images/fashion/watch130822/ph01.jpg
+

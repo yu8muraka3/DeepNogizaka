@@ -1,0 +1,52 @@
+status: 200
+last-modified: Fri, 23 Feb 2018 04:12:58 GMT
+content-type: text/html
+content-length: 2045
+accept-ranges: bytes
+date: Mon, 26 Feb 2018 05:28:08 GMT
+age: 209
+connection: keep-alive
+content-location: http://www.nikkei.co.jp/close/goethe/
+
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: http://ogp.me/ns#">
+<meta charset="utf-8">
+<title>WEB GOETHE｜ウェブゲーテ</title>
+<meta name="robots" content="noarchive" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<link rel="shortcut icon" href="./images/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="icon" type="image/png" sizes="152x152" href="./images/favicon.png">
+<link rel="apple-touch-icon-precomposed" href="./images/favicon.png">
+<link rel="stylesheet" href="./css/gt_common.css">
+<link rel="stylesheet" href="./css/gt_sp.css">
+</head>
+<body>
+<div class="wrap-all" id="GT_OTHER">
+<header class="gt-header-wrap">
+<h1 class="gt-head-logo"><img src="./images/logo_goethe.svg" alt="WEB GOETHE [ウェブゲーテ]"></h1>
+</header>
+<div class="gt-contents-wrap gt-clearfix">
+<div class="gt-msg-wrap">
+<div class="gt-inner">
+<div class="gt-msg-box">
+<p class="gt-msg-tt">「WEB GOETHE」サイト終了のお知らせ</p>
+<p class="gt-msg-tx">　平素は「WEB GOETHE」をご愛読いただき、ありがとうございます。<br>
+当サイトは、2018 年2月22日をもちまして終了いたしました。ご不便をおかけいたしますが過去の記事を閲覧することはできません。<br/><br/>
+「GOETHE」関連の情報は、引き続き幻冬舎のウェブ版「GOETHE」（<a href="https://goetheweb.jp" target="_blank">https://goetheweb.jp</a>）でお楽しみいただけます。<br>今後とも、日本経済新聞電子版ならびに「GOETHE」をご利用くださいますようお願い申し上げます。長年にわたるご愛顧を心より感謝申し上げます。</p>
+</div>
+</div>
+</div>
+</div>
+<footer class="gt-footer-wrap">
+<div id="HENSEI2010-ABOUT_NIKKEI">
+<div class="HENSEI2010-fixed HENSEI2010-clearfix">
+<ul class="HENSEI2010-copyright">
+<li>Nikkei Inc. No reproduction without permission.</li>
+</ul>
+</div>
+</div>
+</footer>
+</div>
+</body>
+</html>
