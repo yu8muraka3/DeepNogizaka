@@ -8,7 +8,7 @@ This application contains a model based on deep learning with face pictures of m
 
 ## License
 
-This software is released under the MIT License, see LICENSE.
+This software is released under the MIT License, see [LICENSE](https://github.com/YuyaMurakami/DeepNogizaka/blob/master/LICENSE).
 
 ## Author
 
