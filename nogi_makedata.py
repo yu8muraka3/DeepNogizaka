@@ -83,7 +83,7 @@ model.compile(loss='binary_crossentropy',
     optimizer='rmsprop',
     metrics=['accuracy'])
 
-model.fit(X_train, y_train, batch_size=64, nb_epoch=10)
+model.fit(X_train, y_train, batch_size=64, nb_epoch=50)
 
 score = model.evaluate(X_test, y_test)
 print('loss=', score[0])
