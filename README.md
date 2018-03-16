@@ -1,6 +1,6 @@
 Deep Nogizaka
 ====
-DeepNogizaka will decide which members of Nogizaka 46 resemble you, when you upload your face image to this application.
+DeepNogizaka will decide which members of Nogizaka46 resemble you, when you upload your face image to this application.
 
 ## Description
 
