@@ -5,7 +5,8 @@ html, body{
   height: 100%;
 }
 body {
-  font-family: 'Helvetica Neue','Helvetica','Arial',YuGothic,'Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', Meiryo,'ＭＳ ゴシック',sans-serif;
+  /* font-family: 'Helvetica Neue','Helvetica','Arial',YuGothic,'Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', Meiryo,'ＭＳ ゴシック',sans-serif; */
+  font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic',sans-serif;
   letter-spacing: 0.2em;
   /* background-image: linear-gradient(45deg, #000000 0%, #111111 100%); */
   color: #ffffff;
@@ -58,11 +59,11 @@ body {
 h1{
   text-align: center;
   position: absolute;
-  top: -1%;
+  top: 1%;
   left: 50%;
   transform : translate(-50%);
-  letter-spacing: 0.01em;
-  font-size: 42px;
+  letter-spacing: 0.2em;
+  font-size: 36px;
 }
 
 .logo{
@@ -107,8 +108,8 @@ h1{
   top: 2%;
   left: 50%;
   transform : translate(-50%);
-  letter-spacing: 0.01em;
-  font-size: 36px;
+  letter-spacing: 0.2em;
+  font-size: 24px;
   width: 100%;
 }
 

@@ -16,13 +16,13 @@ def good():
     return name
 
 ###########################
-#以下画像アップロード処理
+# 以下画像アップロード処理
 ##########################
 
 #iPhoneの画像ファイル形式への対応
 
 #画像アップロード
-UPLOAD_FOLDER = './uploads'
+UPLOAD_FOLDER = './static/asset/uploads'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'gif'])
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['SECRET_KEY'] = os.urandom(24)
@@ -57,4 +57,4 @@ def uploaded_file(filename):
 
 ## おまじない
 if __name__ == "__main__":
-    app.run(host = '0.0.0.0', port = 8080)
+    app.run()

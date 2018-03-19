@@ -50,7 +50,7 @@ X_train, X_test, y_train, y_test = \
 #
 # print("ok", len(Y))
 
-
+X_train = X_train.astype("float") / 256
 
 
 model = Sequential()
