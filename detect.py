@@ -3,10 +3,6 @@ import matplotlib.pyplot as plt
 import cv2
 from keras.models import load_model
 
-categories = [
-    "齋藤飛鳥", "生田絵梨花",
-    "白石麻衣", "堀未央奈",
-    "西野七瀬", "秋元康"]
 
 def detect_face(image):
     print(image.shape)
@@ -37,30 +33,25 @@ def detect_who(img):
     #予測
     name=""
     print(model.predict(img))
-    pre = model.predict(img)
-    # nameNumLabel=np.argmax(model.predict(img))
+    nameNumLabel=np.argmax(model.predict(img))
 
-    for i, p in enumerate(pre):
-        y = p.argmax()
-        print(y)
-        name = categories[y]
-    # if nameNumLabel == "asuka":
-    #     name="Saito Asuka"
-    # elif nameNumLabel == "ikuta":
-    #     name="Ikuta Erika"
-    # elif nameNumLabel == 2:
-    #     name="Shiraishi Mai"
-    # elif nameNumLabel == 3:
-    #     name="Hori Miona"
-    # elif nameNumLabel == 4:
-    #     name="Nishino Nanase"
-    # elif nameNumLabel == 5:
-    #     name="Akimoto Yasushi"
+    if nameNumLabel == 0:
+        name="Saito Asuka"
+    elif nameNumLabel == 1:
+        name="Ikuta Erika"
+    elif nameNumLabel == 2:
+        name="Shiraishi Mai"
+    elif nameNumLabel == 3:
+        name="Hori Miona"
+    elif nameNumLabel == 4:
+        name="Nishino Nanase"
+    elif nameNumLabel == 5:
+        name="Akimoto Yasushi"
     return name
 
 model = load_model('./my_model.h5')
 
-image=cv2.imread("./photo_select/ikuta/ikuta0.jpg")
+image=cv2.imread("./photo_select/maiyan/maiyan1.jpg")
 if image is None:
     print("Not open:")
 b,g,r = cv2.split(image)

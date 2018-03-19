@@ -6,10 +6,11 @@ from keras.models import Sequential
 from keras.layers import Convolution2D, MaxPooling2D
 from keras.layers import Activation, Dropout, Flatten, Dense
 from keras.layers.advanced_activations import LeakyReLU
+from keras.utils import np_utils
 
 
 #分類対象のカテゴリーを選ぶ
-nogi_dir = "./face_scratch_image/"
+nogi_dir = "./face_scratch_image"
 categories = ["asuka", "ikuta", "maiyan", "miona", "nanase", "yasushi"]
 
 nb_classes = len(categories)
@@ -42,15 +43,19 @@ for idx, cat in enumerate(categories):
 X = np.array(X)
 Y = np.array(Y)
 
+
 #学習データとテストデータを分ける
 X_train, X_test, y_train, y_test = \
     cross_validation.train_test_split(X, Y)
-# xy = (X_train, X_test, y_train, y_test)
-# np.save("./photo/5obj.npy", xy)
-#
-# print("ok", len(Y))
+xy = (X_train, X_test, y_train, y_test)
+np.save("./5obj.npy", xy)
+
+print("ok", len(Y))
+
+X_train, X_test, y_train, y_test = np.load("./5obj.npy")
 
 X_train = X_train.astype("float") / 256
+X_test = X_test.astype("float") / 256
 
 
 model = Sequential()
@@ -83,7 +88,7 @@ model.compile(loss='binary_crossentropy',
     optimizer='rmsprop',
     metrics=['accuracy'])
 
-model.fit(X_train, y_train, batch_size=64, nb_epoch=50)
+model.fit(X_train, y_train, batch_size=32, epochs=30)
 
 score = model.evaluate(X_test, y_test)
 print('loss=', score[0])
