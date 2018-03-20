@@ -56,8 +56,8 @@ X_train, X_test, y_train, y_test = np.load("./5obj.npy")
 
 X_train = X_train.astype("float") / 256
 X_test = X_test.astype("float") / 256
-y_train = np.utils.to_categorical(y_train, nb_classes)
-y_test = np.utils.to_categorical(y_test, nb_classes)
+y_train = np_utils.to_categorical(y_train, nb_classes)
+y_test = np_utils.to_categorical(y_test, nb_classes)
 
 model = Sequential()
 
