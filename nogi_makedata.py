@@ -26,8 +26,8 @@ Y = []
 
 for idx, cat in enumerate(categories):
     #ラベルを指定
-    label = [0 for i in range(nb_classes)]
-    label[idx] = 1
+    # label = [0 for i in range(nb_classes)]
+    # label[idx] = 1
     #画像
     image_dir = nogi_dir + "/" + cat
     files = glob.glob(image_dir + "/*.jpg")
@@ -37,7 +37,7 @@ for idx, cat in enumerate(categories):
         img = img.resize((image_w, image_h))
         data = np.asarray(img)
         X.append(data)
-        Y.append(label)
+        Y.append(idx)
         if i % 10 == 0:
             print(i, "\n", data)
 X = np.array(X)
@@ -56,9 +56,8 @@ X_train, X_test, y_train, y_test = np.load("./5obj.npy")
 
 X_train = X_train.astype("float") / 256
 X_test = X_test.astype("float") / 256
-y_train = np_utils.to_categolical(y_train, nb_classes)
-y_test = np_utils.to_categolical(y_test, nb_classes)
-
+y_train = np.utils.to_categorical(y_train, nb_classes)
+y_test = np.utils.to_categorical(y_test, nb_classes)
 
 model = Sequential()
 

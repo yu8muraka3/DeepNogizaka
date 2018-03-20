@@ -21,7 +21,7 @@ def detect_face(image):
                 print("too small")
                 continue
             img = cv2.resize(image,(224, 224))
-            img=np.expand_dims(img,axis=0)
+            img = np.expand_dims(img,axis=0)
             name = detect_who(img)
             cv2.putText(image,name,(x,y+height+20),cv2.FONT_HERSHEY_DUPLEX,1,(255,0,0),2)
     #顔が検出されなかった時
@@ -50,6 +50,7 @@ def detect_who(img):
     return name
 
 model = load_model('./my_model.h5')
+print(model.summary())
 
 image=cv2.imread("./photo_select/miona/miona0.jpg")
 if image is None:
