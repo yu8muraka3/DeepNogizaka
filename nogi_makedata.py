@@ -56,6 +56,8 @@ X_train, X_test, y_train, y_test = np.load("./5obj.npy")
 
 X_train = X_train.astype("float") / 256
 X_test = X_test.astype("float") / 256
+y_train = np_utils.to_categolical(y_train, nb_classes)
+y_test = np_utils.to_categolical(y_test, nb_classes)
 
 
 model = Sequential()
@@ -88,7 +90,7 @@ model.compile(loss='binary_crossentropy',
     optimizer='rmsprop',
     metrics=['accuracy'])
 
-model.fit(X_train, y_train, batch_size=32, epochs=30)
+model.fit(X_train, y_train, batch_size=64, epochs=30)
 
 score = model.evaluate(X_test, y_test)
 print('loss=', score[0])
