@@ -34,30 +34,30 @@ def detect_face(image):
 def detect_who(img):
     #予測
     name=""
-    # print(model.predict(img))
-    pre = model.predict(img)
-    for i, p in enumerate(pre):
-        y = p.argmax()
-        name = categories[y]
-    # nameNumLabel=np.argmax(model.predict(img))
+    print(model.predict(img))
+    # pre = model.predict(img)
+    # for i, p in enumerate(pre):
+    #     y = p.argmax()
+    #     name = categories[y]
+    nameNumLabel=np.argmax(model.predict(img))
 
-    # if nameNumLabel == 0:
-    #     name="Saito Asuka"
-    # elif nameNumLabel == 1:
-    #     name="Ikuta Erika"
-    # elif nameNumLabel == 2:
-    #     name="Shiraishi Mai"
-    # elif nameNumLabel == 3:
-    #     name="Hori Miona"
-    # elif nameNumLabel == 4:
-    #     name="Nishino Nanase"
-    # elif nameNumLabel == 5:
-    #     name="Akimoto Yasushi"
+    if nameNumLabel == 0:
+        name="Saito Asuka"
+    elif nameNumLabel == 1:
+        name="Ikuta Erika"
+    elif nameNumLabel == 2:
+        name="Shiraishi Mai"
+    elif nameNumLabel == 3:
+        name="Hori Miona"
+    elif nameNumLabel == 4:
+        name="Nishino Nanase"
+    elif nameNumLabel == 5:
+        name="Akimoto Yasushi"
     return name
 
 model = load_model('./my_model.h5')
 
-image=cv2.imread("./photo_select/maiyan/maiyan0.jpg")
+image=cv2.imread("./photo_select/yasushi/yasushi10.jpg")
 if image is None:
     print("Not open:")
 b,g,r = cv2.split(image)

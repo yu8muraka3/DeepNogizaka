@@ -5,8 +5,8 @@ from PIL import Image
 
 
 #入力ファイルのパスを指定
-in_jpg = "./photo_select/yasushi/"
-out_jpg = "./photo_select_out/yasushi_out/"
+in_jpg = "./photo_select/ikoma/"
+out_jpg = "./photo_select_out/ikoma_out/"
 
 #リストで結果を返す関数
 def get_file(dir_path):
@@ -33,10 +33,11 @@ for i in pic:
         width = rect[2]
         height = rect[3]
         dst = image_gs[y:y + height, x:x + width]
+        image = cv2.resize(dst,(224,224))
         save_path = out_jpg + '/' + 'out_('  + str(i) +')' + str(no) + '.jpg'
 
         #認識結果の保存
-        a = cv2.imwrite(save_path, dst)
+        a = cv2.imwrite(save_path, image)
         #plt.show(plt.imshow(np.asarray(Image.open(save_path))))
         print(no)
         no += 1
