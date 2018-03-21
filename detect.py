@@ -52,7 +52,7 @@ def detect_who(img):
 model = load_model('./my_model.h5')
 print(model.summary())
 
-image=cv2.imread("./photo_select/miona/miona0.jpg")
+image=cv2.imread("./photo_select/nanase/nanase0.jpg")
 if image is None:
     print("Not open:")
 b,g,r = cv2.split(image)

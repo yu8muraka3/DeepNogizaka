@@ -10,7 +10,7 @@ from keras.utils import np_utils
 
 
 #分類対象のカテゴリーを選ぶ
-nogi_dir = "./face_scratch_image"
+nogi_dir = "./face_scratch_image/"
 categories = ["asuka", "ikuta", "maiyan", "miona", "nanase", "yasushi"]
 
 nb_classes = len(categories)
@@ -18,7 +18,6 @@ nb_classes = len(categories)
 #画像サイズ指定
 image_w = 224
 image_h = 224
-pixels = image_w * image_h * 3
 
 #画像データを読み込み
 X = []
