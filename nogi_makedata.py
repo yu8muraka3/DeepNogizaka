@@ -71,7 +71,7 @@ model.add(Dense(256))
 model.add(Activation("sigmoid"))
 model.add(Dense(128))
 model.add(Activation('sigmoid'))
-model.add(Dense(5))
+model.add(Dense(7))
 model.add(Activation('softmax'))
 
 model.compile(loss='binary_crossentropy',
