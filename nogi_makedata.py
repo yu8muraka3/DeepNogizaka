@@ -16,8 +16,8 @@ categories = ["asuka", "ikuta", "maiyan", "miona", "nanase", "yasushi"]
 nb_classes = len(categories)
 
 #画像サイズ指定
-image_w = 224
-image_h = 224
+image_w = 64
+image_h = 64
 
 #画像データを読み込み
 X = []
@@ -58,27 +58,20 @@ X_test = X_test.astype("float") / 256
 y_train = np_utils.to_categorical(y_train, nb_classes)
 y_test = np_utils.to_categorical(y_test, nb_classes)
 
+# モデルの定義
 model = Sequential()
-
-model.add(Convolution2D(32, 3, 3,
-    border_mode = 'same',
-    # input_shape = (image_w, image_h, 3)))
-    input_shape = X_train.shape[1:]))
-model.add(Activation('relu'))
-model.add(MaxPooling2D(pool_size = (2,2)))
-model.add(Dropout(0.25))
-
-model.add(Convolution2D(64, 3, 3, border_mode='same'))
-model.add(Activation('relu'))
-model.add(Convolution2D(64, 3, 3, border_mode='same'))
-model.add(MaxPooling2D(pool_size = (2,2)))
-model.add(Dropout(0.25))
-
+model.add(Conv2D(input_shape=(64, 64, 3), filters=32,kernel_size=(2, 2), strides=(1, 1), padding="same"))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Conv2D(filters=32, kernel_size=(2, 2), strides=(1, 1), padding="same"))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Conv2D(filters=32, kernel_size=(2, 2), strides=(1, 1), padding="same"))
+model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Flatten())
-model.add(Dense(512))
-model.add(Activation('relu'))
-model.add(Dropout(0.5))
-model.add(Dense(nb_classes))
+model.add(Dense(256))
+model.add(Activation("sigmoid"))
+model.add(Dense(128))
+model.add(Activation('sigmoid'))
+model.add(Dense(5))
 model.add(Activation('softmax'))
 
 model.compile(loss='binary_crossentropy',
