@@ -3,26 +3,32 @@ import matplotlib.pyplot as plt
 import cv2
 from keras.models import load_model
 
-categories = ["asuka", "ikuta", "maiyan", "miona", "nanase", "yasushi"]
+categories = ["asuka", "ikoma", "ikuta", "maiyan", "miona", "nanase", "yasushi"]
 
 
 def detect_face(image):
     print(image.shape)
     #opencvを使って顔抽出
-    image_gs = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    # image_gs = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     cascade = cv2.CascadeClassifier("/usr/local/opt/opencv/share/OpenCV/haarcascades/haarcascade_frontalface_alt.xml")
     # 顔認識の実行
-    face_list=cascade.detectMultiScale(image_gs, scaleFactor=1.1, minNeighbors=2,minSize=(64,64))
+    face_list=cascade.detectMultiScale(image, scaleFactor=1.1, minNeighbors=1,minSize=(64,64))
     #顔が１つ以上検出された時
     if len(face_list) > 0:
         for rect in face_list:
-            x,y,width,height=rect
+            x = rect[0]
+            y = rect[1]
+            width = rect[2]
+            height = rect[3]
+            img = image[y:y + height, x:x + width]
+
+            # x,y,width,height=rect
             cv2.rectangle(image, tuple(rect[0:2]), tuple(rect[0:2]+rect[2:4]), (255, 0, 0), thickness=3)
-            img = image[rect[1]:rect[1]+rect[3],rect[0]:rect[0]+rect[2]]
+            # img = image[rect[1]:rect[1]+rect[3],rect[0]:rect[0]+rect[2]]
             if image.shape[0]<64:
                 print("too small")
                 continue
-            img = cv2.resize(image,(64, 64))
+            img = cv2.resize(img,(224, 224))
             img = np.expand_dims(img,axis=0)
             name = detect_who(img)
             cv2.putText(image,name,(x,y+height+20),cv2.FONT_HERSHEY_DUPLEX,1,(255,0,0),2)
@@ -44,20 +50,22 @@ def detect_who(img):
     if nameNumLabel == 0:
         name="Saito Asuka"
     elif nameNumLabel == 1:
-        name="Ikuta Erika"
+        name="Ikoma Rina"
     elif nameNumLabel == 2:
-        name="Shiraishi Mai"
+        name="Ikuta Erika"
     elif nameNumLabel == 3:
-        name="Hori Miona"
+        name="Shiraishi Mai"
     elif nameNumLabel == 4:
-        name="Nishino Nanase"
+        name="Hori Miona"
     elif nameNumLabel == 5:
+        name="Nishino Nanase"
+    elif nameNumLabel == 6:
         name="Akimoto Yasushi"
     return name
 
 model = load_model('./my_model.h5')
 
-image=cv2.imread("./photo_select/yasushi/yasushi10.jpg")
+image=cv2.imread("./asuka.jpg")
 if image is None:
     print("Not open:")
 b,g,r = cv2.split(image)
