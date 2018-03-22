@@ -60,7 +60,7 @@ y_test = np_utils.to_categorical(y_test, nb_classes)
 
 # モデルの定義
 model = Sequential()
-model.add(Conv2D(input_shape=(224, 224, 3), filters=32,kernel_size=(2, 2), strides=(1, 1), padding="same"))
+model.add(Conv2D(input_shape=(64, 64, 3), filters=32,kernel_size=(2, 2), strides=(1, 1), padding="same"))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Conv2D(filters=32, kernel_size=(2, 2), strides=(1, 1), padding="same"))
 model.add(MaxPooling2D(pool_size=(2, 2)))
