@@ -10,7 +10,7 @@ from keras.utils import np_utils
 
 
 #分類対象のカテゴリーを選ぶ
-nogi_dir = "./face_scratch_image/"
+nogi_dir = "./photo_select_out/"
 categories = ["asuka", "ikoma", "ikuta", "maiyan", "miona", "nanase", "yasushi"]
 
 nb_classes = len(categories)
