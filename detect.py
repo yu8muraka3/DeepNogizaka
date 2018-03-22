@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import cv2
 from keras.models import load_model
 
-categories = ["asuka", "ikoma", "ikuta", "maiyan", "miona", "nanase", "yasushi"]
+categories = ["asuka", "ikoma", "ikuta", "maiyan", "nanase", "yasushi"]
 
 
 def detect_face(image):
@@ -56,10 +56,8 @@ def detect_who(img):
     elif nameNumLabel == 3:
         name="Shiraishi Mai"
     elif nameNumLabel == 4:
-        name="Hori Miona"
-    elif nameNumLabel == 5:
         name="Nishino Nanase"
-    elif nameNumLabel == 6:
+    elif nameNumLabel == 5:
         name="Akimoto Yasushi"
     return name
 

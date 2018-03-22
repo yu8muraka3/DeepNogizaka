@@ -4,7 +4,7 @@ import numpy as np
 import random, math
 
 root_dir = "./photo_select_out64/"
-categories = ["asuka_out", "ikoma_out", "ikuta_out", "maiyan_out", "miona_out", "nanase_out", "yasushi_out"]
+categories = ["asuka_out", "ikoma_out", "ikuta_out", "maiyan_out", "nanase_out", "yasushi_out"]
 nb_classes = len(categories)
 image_size = 64
 
