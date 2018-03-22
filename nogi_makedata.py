@@ -11,7 +11,7 @@ from keras.utils import np_utils
 
 #分類対象のカテゴリーを選ぶ
 nogi_dir = "./photo_select_out/"
-categories = ["asuka", "ikoma", "ikuta", "maiyan", "miona", "nanase", "yasushi"]
+categories = ["asuka_out", "ikoma_out", "ikuta_out", "maiyan_out", "miona_out", "nanase_out", "yasushi_out"]
 
 nb_classes = len(categories)
 
