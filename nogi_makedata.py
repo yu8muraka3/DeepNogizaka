@@ -10,14 +10,14 @@ from keras.utils import np_utils
 
 
 #分類対象のカテゴリーを選ぶ
-nogi_dir = "./photo_select_out/"
+nogi_dir = "./photo_select_out64/"
 categories = ["asuka_out", "ikoma_out", "ikuta_out", "maiyan_out", "miona_out", "nanase_out", "yasushi_out"]
 
 nb_classes = len(categories)
 
 #画像サイズ指定
-image_w = 224
-image_h = 224
+image_w = 64
+image_h = 64
 
 #画像データを読み込み
 X = []

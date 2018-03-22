@@ -5,8 +5,8 @@ from PIL import Image
 
 
 #入力ファイルのパスを指定
-in_jpg = "./photo_select/nanase/"
-out_jpg = "./photo_select_out/nanase_out/"
+in_jpg = "./photo_select/miona/"
+out_jpg = "./photo_select_out64/miona_out/"
 
 #リストで結果を返す関数
 def get_file(dir_path):
@@ -33,7 +33,7 @@ for i in pic:
         width = rect[2]
         height = rect[3]
         dst = image_gs[y:y + height, x:x + width]
-        image = cv2.resize(dst,(224,224))
+        image = cv2.resize(dst,(64,64))
         save_path = out_jpg + '/' + 'out_('  + str(i) +')' + str(no) + '.jpg'
 
         #認識結果の保存
