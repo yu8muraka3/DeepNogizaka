@@ -28,7 +28,7 @@ def detect_face(image):
             if image.shape[0]<64:
                 print("too small")
                 continue
-            img = cv2.resize(img,(224, 224))
+            img = cv2.resize(img,(64, 64))
             img = np.expand_dims(img,axis=0)
             name = detect_who(img)
             cv2.putText(image,name,(x,y+height+20),cv2.FONT_HERSHEY_DUPLEX,1,(255,0,0),2)
