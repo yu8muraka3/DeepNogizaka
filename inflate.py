@@ -27,14 +27,14 @@ def scratch_image(img, flip=True, thr=True, filt=True):
     return images
 
 # 画像の読み込み
-in_dir = "./photo_select_out/ikuta_out/*"
+in_dir = "./photo_select_out/asuka_out/*"
 in_jpg=glob.glob(in_dir)
-img_file_name_list=os.listdir("./photo_select_out/ikuta_out/")
+img_file_name_list=os.listdir("./photo_select_out/asuka_out/")
 for i in range(len(in_jpg)):
     print(str(in_jpg[i]))
     img = cv2.imread(str(in_jpg[i]))
     scratch_face_images = scratch_image(img)
     for num, im in enumerate(scratch_face_images):
         fn, ext = os.path.splitext(img_file_name_list[i])
-        file_name=os.path.join("./face_scratch_image/ikuta",str(fn+"."+str(num)+".jpg"))
+        file_name=os.path.join("./face_scratch_image/asuka",str(fn+"."+str(num)+".jpg"))
         cv2.imwrite(str(file_name) ,im)
