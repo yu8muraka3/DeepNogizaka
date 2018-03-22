@@ -36,36 +36,25 @@ y_test = np_utils.to_categorical(y_test, nb_classes)
 
 # モデルの定義
 model = Sequential()
-
-model.add(Convolution2D(32, 3, 3,
-    border_mode = 'same',
-    activation = 'linear',
-    # input_shape = (image_w, image_h, 3)))
-    input_shape = X_train.shape[1:]))
-model.add(LeakyReLU(alpha=0.3))
-
-model.add(Convolution2D(32, 3, 3, border_mode='same', activation='linear'))
-model.add(LeakyReLU(alpha=0.3))
-
-model.add(MaxPooling2D((2,2), strides=(2,2)))
-
-model.add(Convolution2D(64, 3, 3, border_mode='same', activation='linear'))
-model.add(LeakyReLU(alpha=0.3))
-model.add(Convolution2D(64, 3, 3, border_mode='same', activation='linear'))
-model.add(LeakyReLU(alpha=0.3))
-model.add(MaxPooling2D((2,2), strides=(2,2)))
-
+model.add(Conv2D(input_shape=(64, 64, 3), filters=32,kernel_size=(2, 2), strides=(1, 1), padding="same"))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Conv2D(filters=32, kernel_size=(2, 2), strides=(1, 1), padding="same"))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Conv2D(filters=32, kernel_size=(2, 2), strides=(1, 1), padding="same"))
+model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Flatten())
-model.add(Dense(512, activation='linear'))
-model.add(LeakyReLU(alpha=0.3))
-model.add(Dropout(0.5))
-model.add(Dense(nb_classes, activation='softmax'))
+model.add(Dense(256))
+model.add(Activation("sigmoid"))
+model.add(Dense(128))
+model.add(Activation('sigmoid'))
+model.add(Dense(6))
+model.add(Activation('softmax'))
 
 model.compile(loss='binary_crossentropy',
     optimizer='rmsprop',
     metrics=['accuracy'])
 
-model.fit(X_train, y_train, batch_size=64, epochs=30)
+model.fit(X_train, y_train, batch_size=64, epochs=15)
 
 score = model.evaluate(X_test, y_test)
 print('loss=', score[0])
