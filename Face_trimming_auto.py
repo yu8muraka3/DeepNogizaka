@@ -5,8 +5,8 @@ from PIL import Image
 
 
 #入力ファイルのパスを指定
-in_jpg = "./photo_select/maiyan/"
-out_jpg = "./photo_select_out/maiyan_out/"
+in_jpg = "./photo_select/nanase/"
+out_jpg = "./photo_select_out/nanase_out/"
 
 #リストで結果を返す関数
 def get_file(dir_path):
