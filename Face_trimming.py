@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 # in_jpg = "./photo_select/miona/miona84.jpg"
 # out_jpg = "./photo_select_out/miona_out/miona84.jpg"
 
-var = "ikoma"
-for i in range(13, 16):
+var = "nanase"
+for i in range(16, 19):
     #入力ファイルのパスを指定
     if i < 10:
         in_jpg = "./photo_select/" + var + '/' + var + '00' + str(i) + '.jpg'
