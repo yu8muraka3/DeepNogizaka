@@ -2,6 +2,7 @@ from PIL import Image
 import os, glob
 import numpy as np
 import random, math
+import cv2
 
 root_dir = "./photo_select_out64/"
 categories = ["asuka_out", "ikoma_out", "ikuta_out", "maiyan_out", "nanase_out", "yasushi_out"]
@@ -12,6 +13,10 @@ image_size = 64
 X = []  # 画像データ
 Y = []  # ラベルデータ
 
+def append(data, cat):
+    X.append(data)
+    Y.append(cat)
+
 def add_sample(cat, fname, is_train):
     img = Image.open(fname)
     img = img.convert("RGB")
@@ -21,16 +26,35 @@ def add_sample(cat, fname, is_train):
     Y.append(cat)
     if not is_train: return
 
-    for ang in range(-20, 20, 5):
-        img2 = img.rotate(ang)
-        data = np.asarray(img2)
-        X.append(data)
-        Y.append(cat)
+    flip = lambda x: cv2.flip(x, 1)
+    thr = lambda x: cv2.threshold(x, 100, 255, cv2.THRESH_TOZERO)[1]
+    filt = lambda x: cv2.GaussianBlur(x, (5, 5), 0)
 
-        img2 = img2.transpose(Image.FLIP_LEFT_RIGHT)
-        data = np.asarray(img2)
-        X.append(data)
-        Y.append(cat)
+    methods = [flip, thr, filt]
+
+    for f in methods:
+        processing_data1 = f(data)
+        append(processing_data1, cat)
+
+        for f in methods[1:]:
+            processing_data2 = f(processing_data1)
+            append(processing_data2, cat)
+
+            for f in methods[1:2]:
+                processing_data3 = f(processing_data2)
+                append(processing_data3, cat)
+
+    # for ang in range(-20, 20, 5):
+    #     img2 = img.rotate(ang)
+    #     data = np.asarray(img2)
+    #     X.append(data)
+    #     Y.append(cat)
+    #
+    #     img2 = img2.transpose(Image.FLIP_LEFT_RIGHT)
+    #     data = np.asarray(img2)
+    #     X.append(data)
+    #     Y.append(cat)
+
 
 def make_sample(files, is_train):
     global X, Y
