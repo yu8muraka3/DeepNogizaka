@@ -13,7 +13,7 @@ image_size = 64
 X = []  # 画像データ
 Y = []  # ラベルデータ
 
-def append(data, cat):
+def data_append(data, cat):
     X.append(data)
     Y.append(cat)
 
@@ -26,6 +26,8 @@ def add_sample(cat, fname, is_train):
     Y.append(cat)
     if not is_train: return
 
+    filter1 = np.ones((3, 3))
+
     flip = lambda x: cv2.flip(x, 1)
     thr = lambda x: cv2.threshold(x, 100, 255, cv2.THRESH_TOZERO)[1]
     filt = lambda x: cv2.GaussianBlur(x, (5, 5), 0)
@@ -33,16 +35,15 @@ def add_sample(cat, fname, is_train):
     methods = [flip, thr, filt]
 
     for f in methods:
-        processing_data1 = f(data)
-        append(processing_data1, cat)
+        processing_data = f(data)
+        data_append(processing_data, cat)
 
-        for f in methods[1:]:
-            processing_data2 = f(processing_data1)
-            append(processing_data2, cat)
+    for f in methods[1:]:
+        processing_data = flip(f(data))
+        data_append(processing_data, cat)
 
-            for f in methods[1:2]:
-                processing_data3 = f(processing_data2)
-                append(processing_data3, cat)
+    data_append(thr(filt(data)), cat)
+    data_append(flip(thr(filt(data))), cat)
 
     # for ang in range(-20, 20, 5):
     #     img2 = img.rotate(ang)
