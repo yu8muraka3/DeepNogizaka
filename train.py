@@ -53,7 +53,7 @@ model.add(Dense(6))
 model.add(Activation('softmax'))
 
 model.compile(loss='binary_crossentropy',
-    optimizer='rmsprop',
+    optimizer=Adam(lr=1e-5),
     metrics=['accuracy'])
 
 model.fit(X_train, y_train, batch_size=64, epochs=15, validation_split=0.1)
