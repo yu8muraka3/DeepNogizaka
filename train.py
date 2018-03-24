@@ -7,6 +7,8 @@ from keras.layers import Conv2D, MaxPooling2D
 from keras.layers import Activation, Dropout, Flatten, Dense
 from keras.layers.advanced_activations import LeakyReLU
 from keras.utils import np_utils
+from keras.optimizers import Adam
+
 
 
 #分類対象のカテゴリーを選ぶ
