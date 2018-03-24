@@ -72,7 +72,7 @@ for idx, cat in enumerate(categories):
         allfiles.append((idx, f))
 
 random.shuffle(allfiles)
-th = math.floor(len(allfiles) * 0.7)
+th = math.floor(len(allfiles) * 0.8)
 train = allfiles[0:th]
 test = allfiles[th:]
 X_train, y_train = make_sample(train, True)
