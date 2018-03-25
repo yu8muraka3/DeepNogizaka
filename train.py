@@ -8,6 +8,7 @@ from keras.layers import Activation, Dropout, Flatten, Dense
 from keras.layers.advanced_activations import LeakyReLU
 from keras.utils import np_utils
 from keras.optimizers import Adam
+from keras.callbacks import EarlyStopping
 
 
 
@@ -58,7 +59,9 @@ model.compile(loss='binary_crossentropy',
     optimizer=Adam(lr=1e-5),
     metrics=['accuracy'])
 
-model.fit(X_train, y_train, batch_size=64, epochs=500, validation_split=0.1)
+early_stopping = EarlyStopping(monitor='val_loss', patience=10, verbose=0)
+
+model.fit(X_train, y_train, batch_size=64, epochs=500, validation_split=0.1, callbacks=[EarlyStopping()])
 
 score = model.evaluate(X_test, y_test)
 print('loss=', score[0])
