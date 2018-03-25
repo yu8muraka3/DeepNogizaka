@@ -58,7 +58,7 @@ model.compile(loss='binary_crossentropy',
     optimizer=Adam(lr=1e-5),
     metrics=['accuracy'])
 
-model.fit(X_train, y_train, batch_size=64, epochs=330, validation_split=0.1)
+model.fit(X_train, y_train, batch_size=64, epochs=375, validation_split=0.1)
 
 score = model.evaluate(X_test, y_test)
 print('loss=', score[0])
