@@ -4,7 +4,7 @@ DeepNogizaka will decide which members of Nogizaka46 resemble you, when you uplo
 
 ## Description
 
-This application contains a model based on deep learning with face images of members of Nogizaka46. By using this model, it decides which members resemble you.
+This application contains a model based on Deep Learning with face images of members of Nogizaka46. By using this model, it decides which members resemble you.
 
 ## License
 
