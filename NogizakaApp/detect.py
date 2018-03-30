@@ -5,9 +5,6 @@ from keras.models import load_model
 from flask import request
 from operator import itemgetter
 
-categories = ["asuka", "ikoma", "ikuta", "maiyan", "nanase", "yasushi"]
-
-
 def detect_face(image):
     print(image.shape)
     #opencvを使って顔抽出
