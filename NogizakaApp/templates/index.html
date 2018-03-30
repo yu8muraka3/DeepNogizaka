@@ -1,11 +1,48 @@
 {% extends "layout.html" %}
 {% block content %}
-<h3>Hello</h3>
+<h1 id = "noto">
+  乃木坂っで、だれ？
+</h1>
+<p class = "description">あなたが乃木坂46の誰に似ているかを<br class="br-pc">AIが判定</p>
+<!-- <a class="circle" href="~"> -->
 <form method="post" action="/send" enctype="multipart/form-data">
-  <input type="file" id="img_file" name="img_file" class="col-sm-4">
-  <input type="submit" value="送信" class="btn">
-</form>
-{% if img_url %}
-<p><img src="{{ img_url }}"></p>
-  {% endif %}
+  <div class="file">
+    <div class="select-file" display="block">画像をアップする</div>
+    <div class="ok" display="none">OK!</div>
+    <input type="file" id="img_file" name="img_file">
+  </div>
+    <button type="submit" value="send" class="btn" name="action" disabled="true">
+      判定する
+    </button>
+    </form>
+
+{% if error %}
+  <script type="text/javascript">
+    alert("顔が上手く検出出来ませんでした><\n違う画像でチャレンジしてみてね！");
+  </script>
+{% endif %}
+
+<!-- スクリプト -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        $('#img_file').change(function(){
+          var file = this.files[0];
+          if (file != null) {
+          //ファイルあれば、送信ボタンを押せる
+          $('.btn').prop('disabled', false);
+          $('.select-file').hide();
+          $('.ok').show();
+          } else {
+          //ファイルなければ、送信ボタンを押せない
+          $('.btn').prop('disabled', true);
+          $('.select-file').show();
+          $('.ok').hide();
+          }
+        });
+      });
+
+
+    </script>
+
 {% endblock %}

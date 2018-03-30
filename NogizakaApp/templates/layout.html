@@ -4,8 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>DeepNogizaka</title>
-  <meta name="description" content="自分の顔画像をアップロードすると、乃木坂46のメンバーの誰に似ているかを判定">
+  <meta name="description" content="AIが乃木坂46のメンバーの誰に似ているかを判定">
+  <link rel="shortcut icon" href="icon.jpg">
   <link rel="stylesheet" href="/static/css/index.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <style>
     /*Google Noto Sans Web Fonts*/
     @import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
@@ -15,18 +17,28 @@
     }
   </style>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@yu8muraka3" />
+  <meta name="twitter:title" content="乃木坂っで、だれ？" />
+  <meta name="twitter:description" content="あなたが乃木坂46のメンバーの誰に似ているかをAIが判定" />
+  <meta name="twitter:image" content="icon.jpg" />
 </head>
 <body>
   <div id = "particles-js"></div>
-    <h1 id = "noto">
-      乃木坂っで、だれ？
-    </h1>
-    <p class = "description">あなたが乃木坂46の誰に似ているかをAIが判定</p>
+
       <div class = "triangle"></div>
-      <!-- <img src = "Orion_camera.svg" class="camera"> -->
     {% block content %}{% endblock %}
 
   <script src="/static/javascript/particles.min.js"></script>
   <script src="/static/javascript/app.js"></script>
+  <footer id="footer">
+    <font size="1">Designed by
+    <div id="social-icon">
+      <a href="https://twitter.com/yu8muraka3"><i class="fa fa-twitter fa-lg"></i></a>
+    </div>
+    <a href="https://twitter.com/yu8muraka3">yu8muraka3</a>
+    </font>
+  </footer>
 </body>
 </html>

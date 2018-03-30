@@ -1,0 +1,160 @@
+.judge{
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 5%;
+  left: 50%;
+  transform : translate(-50%);
+  letter-spacing: 0.2em;
+  font-size: 16px;
+}
+
+.member{
+  text-align: center;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform : translate(-50%);
+  letter-spacing: 0.2em;
+  width: 700px;
+  height: 670px;
+}
+
+.name{
+  font-size: 36px;
+  letter-spacing: 0.2em;
+}
+
+.result{
+  display: inline-block;
+  margin-right: 2%;
+  margin-top: 5%;
+}
+
+.upload{
+  display: inline-block;
+  margin-left: 2%;
+  margin-top: 5%;
+}
+
+#nogimem{
+  width: 331px;
+  height:400px;
+}
+
+#user{
+  width:300px;
+  height:400px;
+}
+
+.shadow {
+  box-shadow: 5px 10px 20px rgba(0,0,0,0.25);
+}
+
+.square_btn {
+    font-size: 20px;
+    margin-top: 10%;
+    display: inline-block;
+    padding: 0.3em 1em;
+    text-decoration: none;
+    color: #fa71cd;
+    border: solid 1px #fa71cd;
+    border-radius: 1px;
+    transition: .4s ease-in-out;
+    margin-right: 9%;
+    margin-left: 9%;
+}
+
+.square_btn:hover {
+    background-image: linear-gradient(45deg, #fa71cd 10%, #c471f5 );
+    color: white;
+}
+
+
+#result,
+#upload,
+.item{
+  display: none !important;
+}
+
+@media screen and (max-width: 480px){
+
+  p{
+    font-size: 14px;
+  }
+
+  .judge{
+    top: 2%;
+    font-size: 14px;
+  }
+
+  .name {
+    font-size: 28px;
+  }
+
+  .item{
+    display: block !important;
+    width: calc(100%/2);
+    float: left;
+
+    height: 25px;
+   background-color: transparent;
+   line-height: 25px;
+   transition: all 0.2s ease-in;
+   margin-bottom: 2%;
+   letter-spacing: 0.3em;
+
+  }
+
+  .tabs input:checked + .item {
+    border-bottom: 3px solid #c471f5;
+    color: #c471f5;
+}
+
+
+
+/*選択されているタブのコンテンツのみを表示*/
+#result:checked ~ .result,
+#upload:checked ~ .upload {
+  display: block;
+}
+
+  .member{
+    top: 7%;
+    width: 320px;
+    height: auto;
+  }
+
+  .result{
+    margin-right: 0;
+    display: none;
+  }
+
+  .upload{
+    margin-left: 0;
+    display: none;
+  }
+
+  #nogimem{
+    width: 260px;
+    height: 330px;
+  }
+
+  #user{
+    width:250px;
+    height:330px;
+  }
+
+.square_btn{
+  font-size: 16px;
+  margin-top: 7%;
+  margin-bottom: 2%;
+}
+
+}
+
+@media screen and (max-height: 640px){
+  footer{
+    display: none;
+  }
+}
