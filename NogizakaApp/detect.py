@@ -83,7 +83,7 @@ def detect_who(img):
 def start_detect(input_file):
     global img_file
     img_file = input_file
-    model = load_model('./my_model.h5')
+    model = load_model('my_model.h5')
 
     image=cv2.imread("./static/asset/uploads/" + img_file)
     print(img_file)
