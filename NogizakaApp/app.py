@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import os, re
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory, session
 from werkzeug import secure_filename
