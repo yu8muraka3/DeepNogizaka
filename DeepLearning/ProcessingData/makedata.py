@@ -45,17 +45,6 @@ def add_sample(cat, fname, is_train):
     data_append(thr(filt(data)), cat)
     data_append(flip(thr(filt(data))), cat)
 
-    # for ang in range(-20, 20, 5):
-    #     img2 = img.rotate(ang)
-    #     data = np.asarray(img2)
-    #     X.append(data)
-    #     Y.append(cat)
-    #
-    #     img2 = img2.transpose(Image.FLIP_LEFT_RIGHT)
-    #     data = np.asarray(img2)
-    #     X.append(data)
-    #     Y.append(cat)
-
 
 def make_sample(files, is_train):
     global X, Y
@@ -78,5 +67,5 @@ test = allfiles[th:]
 X_train, y_train = make_sample(train, True)
 X_test, y_test = make_sample(test, False)
 xy = (X_train, X_test, y_train, y_test)
-np.save("./5obj.npy", xy)
+np.save("./6obj.npy", xy)
 print("ok", len(y_train))

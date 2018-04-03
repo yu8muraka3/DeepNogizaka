@@ -30,7 +30,7 @@ X = np.array(X)
 Y = np.array(Y)
 
 
-X_train, X_test, y_train, y_test = np.load("./5obj.npy")
+X_train, X_test, y_train, y_test = np.load("./6obj.npy")
 
 X_train = X_train.astype("float") / 256
 X_test = X_test.astype("float") / 256

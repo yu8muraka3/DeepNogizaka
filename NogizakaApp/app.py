@@ -13,11 +13,6 @@ def index():
     name = "Hello World"
     return render_template('index.html', title='flask test', name=name)
 
-@app.route('/good')
-def good():
-    name = "Good"
-    return name
-
 ###########################
 # 以下画像アップロード処理
 ##########################
