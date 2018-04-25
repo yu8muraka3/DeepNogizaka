@@ -1,5 +1,7 @@
 Deep Nogizaka
 ====
+<img src = "https://user-images.githubusercontent.com/29881436/38592332-6b4a260e-3d76-11e8-809f-cbc7226386db.png" height="500">
+
 DeepNogizaka will decide which members of Nogizaka46 resemble you, when you upload your face image to this application.
 
 ## Description
