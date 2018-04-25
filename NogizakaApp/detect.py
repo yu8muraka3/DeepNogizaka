@@ -11,7 +11,9 @@ def detect_face(image):
     print(image.shape)
     #opencvを使って顔抽出
     # image_gs = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    cascade = cv2.CascadeClassifier("/usr/local/opt/opencv/share/OpenCV/haarcascades/haarcascade_frontalface_alt.xml")
+
+    ##ローカルの場合(/usr/local/opt/opencv/share/OpenCV/haarcascades/haarcascade_frontalface_alt.xml)
+    cascade = cv2.CascadeClassifier("/home/yuya/.pyenv/versions/anaconda3-4.3.1/share/OpenCV/haarcascades/haarcascade_frontalface_alt.xml")
     # 顔認識の実行
     face_list=cascade.detectMultiScale(image, scaleFactor=1.1, minNeighbors=1,minSize=(64,64))
     #顔が１つ以上検出された時
@@ -46,7 +48,7 @@ def detect_face(image):
     #顔が検出されなかった時
     else:
         print("no face")
-        return None, None
+        return None, None, None
 
 def detect_who(img):
     #予測
